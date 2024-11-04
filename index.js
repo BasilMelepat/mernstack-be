@@ -9,13 +9,13 @@ const cookieParser = require('cookie-parser')
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://mernstack-fe-green.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true
 }));
 app.use(cookieParser())
 
-mongoose.connect("mongodb+srv://basilmelepat:bas123@mernstack.gm03i.mongodb.net/?retryWrites=true&w=majority&appName=mernstack");
+mongoose.connect("mongodb+srv://basilmelepat:bas123@mernstack.gm03i.mongodb.net/mernstack?retryWrites=true&w=majority&appName=mernstack");
 
 const verifyUser = (req, res, next) => {
     try {
