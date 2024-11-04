@@ -15,6 +15,8 @@ app.use(cors({
 }));
 app.use(cookieParser())
 
+app.options('*', cors());
+
 mongoose.connect("mongodb+srv://basilmelepat:bas123@mernstack.gm03i.mongodb.net/mernstack?retryWrites=true&w=majority&appName=mernstack");
 
 const verifyUser = (req, res, next) => {
