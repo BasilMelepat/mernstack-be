@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: ["https://mernstack-fe-green.vercel.app"],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
     optionsSuccessStatus: 200
