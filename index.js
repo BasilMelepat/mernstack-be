@@ -11,9 +11,7 @@ app.use(express.json());
 app.use(cors({
     origin: ["https://mernstack-fe-green.vercel.app"],
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-    exposedHeaders: ["set-cookie"]
 }));
 app.use(cookieParser())
 
