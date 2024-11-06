@@ -8,11 +8,14 @@ const cookieParser = require('cookie-parser')
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-    origin: ["https://mernstack-fe-green.vercel.app"],
-    methods: ['GET', 'POST'],
-    credentials: true,
-}));
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Max-Age', 86400); // 24 hours
+  next();
+});
 app.use(cookieParser())
 
 app.options('*', cors());
