@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser')
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["https://mernstack-fe-green.vercel.app"],
+    origin: ["https://mernstack-fe-02.onrender.com"],
     methods: ["GET", "POST"],
     credentials: true
 }));
