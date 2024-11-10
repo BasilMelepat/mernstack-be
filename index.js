@@ -19,16 +19,16 @@ mongoose.connect("mongodb+srv://basilmelepat:bas123@mernstack.gm03i.mongodb.net/
 
 const verifyUser = (req, res, next) => {
     try {
-        const token = req.cookies.token;
+        const token = req.headers['authorization']?.split(' ')[1];
         if (!token) {
             return res.status(401).json({ error: "No token provided", authenticated: false });
         }
-
+        
         jwt.verify(token, "jwt-secret-key", (err, decoded) => {
             if (err) {
                 return res.status(401).json({ error: "Invalid token", authenticated: false });
             }
-            req.user = decoded; // Store user data in request for later use
+            req.userId = decoded._id; // Only storing user ID instead of entire decoded token
             next();
         });
     } catch (error) {
